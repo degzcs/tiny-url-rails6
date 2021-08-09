@@ -9,6 +9,10 @@ class UrlInfoController < ApplicationController
   end
 
   def show
+    @visits = @url_info.visits
+    @short_url = UrlFormatter.new.call(
+      token: @url_info.token
+    )
     respond_to do |format|
       format.html { render :show }
     end
@@ -21,11 +25,11 @@ class UrlInfoController < ApplicationController
   end
 
   def create
-    service = CreateTinyUrl.new
+    service = CreateUrlInfo.new
     service.call(url: params[:url])
     if service.valid?
       respond_to do |format|
-        format.html { redirect_to :show, token: url_info.token }
+        format.html { redirect_to '/:token', token: service.token }
       end
     else
       respond_to do |format|

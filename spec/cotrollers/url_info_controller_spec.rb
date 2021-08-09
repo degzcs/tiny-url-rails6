@@ -35,7 +35,7 @@ describe UrlInfoController, type: :controller do
 
     it 'should render the info of a short url' do
       post :create, params: { url: url }
-      assert_response 201
+      assert_response 302
     end
   end
 end
