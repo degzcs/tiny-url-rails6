@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'url_info#index'
+  get '/' => 'url_info#index'
+  post '/url_info' => 'url_info#create'
+  get '/:token' => 'url_info#redirect'
+  get '/:token/info' => 'url_info#show'
 end
