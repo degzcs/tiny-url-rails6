@@ -3,7 +3,7 @@ require 'rails_helper'
 describe CreateUrlInfo do
   let(:url) { 'http://url.com' }
   let(:timestamp) { 123456789 }
-  let(:token) { 'FeKw08M4' }
+  let(:token) { '25f9e794' }
 
   context '#token_builder' do
     context 'when token does not exists' do
@@ -24,7 +24,7 @@ describe CreateUrlInfo do
 
       it 'should return a new token' do
         subject.token_builder(timestamp: timestamp)
-        expect(subject.token).to eq 'jvnWLrIo'
+        expect(subject.token).to eq '00fb5ae2'
       end
     end
 

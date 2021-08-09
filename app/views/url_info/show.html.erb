@@ -2,13 +2,22 @@
   <h2>Url Information</h2>
   <ul>
     <li>
-      <%= @url_info.url %>
+      <h4>URL</h4>
+      <p>
+        <%= link_to nil, @url_info.url, target:"_blank" %>
+      </p>
+    </li>
+      <h4>SHORT URL</h4>
+      <p>
+        <%= @short_url %>
+      </p>
+    <li>
     </li>
     <li>
-      <%= @short_url %>
-    </li>
-    <li>
-      <%= @visits.count %>
+      <h4>VISITS</h4>
+      <p>
+        Number of visits: <%= @visits.count %>
+      </p>
     </li>
   </ul>
 </div>
