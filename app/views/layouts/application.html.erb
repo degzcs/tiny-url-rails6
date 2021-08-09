@@ -10,6 +10,25 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <header>
+        <h2><a href="/">MyShortUrl</a></h2>
+        <nav>
+          <ul>
+            <li>
+              <a href="/" title="about-me">about me</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <%= yield %>
+
+      <div id="madeby">
+        <span>
+          created by <a href="https://www.linkedin.com/in/diegofgomezpardo/" target="_blank">Diego Gomez</a>
+        </span>
+      </div>
+    </div>
   </body>
 </html>

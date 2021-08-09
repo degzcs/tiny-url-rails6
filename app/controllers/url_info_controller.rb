@@ -19,6 +19,8 @@ class UrlInfoController < ApplicationController
   end
 
   def redirect
+    CreateVisit.new.call(token: params[:token],
+                         ip_address: request.remote_ip)
     respond_to do |format|
       format.html { redirect_to @url_info.url }
     end
@@ -29,11 +31,11 @@ class UrlInfoController < ApplicationController
     service.call(url: params[:url])
     if service.valid?
       respond_to do |format|
-        format.html { redirect_to '/:token', token: service.token }
+        format.html { redirect_to '/' + service.token + '/info' }
       end
     else
       respond_to do |format|
-        format.html { redirect_to :index, notice: 'Try again please!' }
+        format.html { render :index, notice: 'Try again please!' }
       end
     end
   end

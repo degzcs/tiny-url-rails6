@@ -1,0 +1,8 @@
+<div class="cover">
+  <h1>Convert any url in something easier to type.</h1>
+  <%= form_with url: '/url-info', class:"flex-form", method: :post do |form| %>
+    <%= form.search_field  :url, placeholder: "Paste the long url here ..." %>
+    <%= form.submit "Click me!" %>
+  <% end %>
+</div>
+
